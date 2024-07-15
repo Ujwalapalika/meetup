@@ -1,3 +1,4 @@
+import {withRouter} from 'react-router-dom'
 import Header from '../Header'
 import MeetContext from '../../Context/MeetContext'
 import {
@@ -34,7 +35,7 @@ const topicsList = [
   },
 ]
 
-const Register = props => (
+const Register = () => (
   <MeetContext.Consumer>
     {value => {
       const {
@@ -51,14 +52,7 @@ const Register = props => (
       const selectActiveTopic = event => {
         changeTopic(event.target.value)
       }
-      const RegisterNow = event => {
-        SubmitInput(event)
-      }
-
-      if (inputText !== '') {
-        const {history} = props
-        history.replace('/')
-      }
+      const RegisterNow = SubmitInput
       return (
         <RegisterContainer>
           <Header />
@@ -96,4 +90,4 @@ const Register = props => (
   </MeetContext.Consumer>
 )
 
-export default Register
+export default withRouter(Register)

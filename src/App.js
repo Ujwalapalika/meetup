@@ -47,14 +47,15 @@ class App extends Component {
   }
 
   SubmitInput = event => {
-    const {inputText} = this.state
     event.preventDefault()
+    const {inputText} = this.state
     console.log(event)
     if (inputText === '') {
       this.setState({error: true})
     } else {
+      this.setState({error: false})
       const {history} = this.props
-      history.replace('/')
+      console.log(history)
     }
   }
 
